@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald&display=swap');
+
+body {
+    background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.banner-container {
+    background-color: #e0e6ee;
+    margin-top: 20px;
+    border: 5px solid white;
+}
+.banner1 {
+    width: 40%;
+
+}
+.heading-1 {
+    font-family: 'Lobster', cursive;
+}
+.heading-2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.heading-3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+.list-group-item + .list-group-item {
+	border-top-width: 1px !important;
+}

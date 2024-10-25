@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Felonious Forums | Home</title>
+      <link rel="icon" href="/static/images/logo.png" />
+      <meta name="author" content="rayhan0x01">
+      <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="/static/css/auth.css" />
+      <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+      <link rel="stylesheet" type="text/css" href="/static/vendors/mdi/materialdesignicons.min.css">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ps-5" id="navbarColor02">
+               <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="/home"><i class="mdi mdi-home"></i> Home
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#"><i class="mdi mdi-star"></i> Upgrade</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#"><i class="mdi mdi-flag"></i> Help</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/threads/new"><i class="mdi mdi-note-plus"></i> New Thread</a>
+                  </li>
+               </ul>
+               <div class="d-flex me-5">
+                  <ul class="navbar-nav me-auto">
+                     <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           {{ user.username }}
+                        </a>
+                       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item dropdown" href="#">My Threads</a>
+                         <a class="dropdown-item" href="/logout">Logout</a>
+                       </div>
+                     </li>
+                   </ul>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <div class="header-banner">
+         <img src="/static/images/logo_large.png" id="main-logo">
+      </div>
+      <div class="container main-container">
+        <div class="main-breadcrumb">
+          <ul class="bcm-ul">
+            <li class="bcm-li">
+              <a class="bcm-a" href="/home"><i class="mdi mdi-home"></i> Home</a>
+            </li>
+          </ul>
+        </div>
+        <span class="bcm-tail"></span>
+        <div class="sep pt-5"></div>
+        <div class="top-ads">
+            <div class="row">
+                <div class="col-lg pe-0 text-end">
+                    <a href="https://academy.hackthebox.com/preview/certifications/htb-certified-bug-bounty-hunter" target="_blank"><img src="/static/images/ads_1.gif" class="top-ad-banners"></a>
+                </div>
+                <div class="col-lg text-start">
+                  <a href="https://app.hackthebox.com/challenges/310" target="_blank"><img src="/static/images/ads_2.gif" class="top-ad-banners"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row home-threads-container">
+            <div class="col-lg-9 home-main-section">
+               <ul class="threads-cat-ul">
+                  {% for c in categories %}
+                  {% if c.cat_name == 'Announcements' %}
+                  <li class="threads-cat-li t-active">
+                  {% else %}
+                  <li class="threads-cat-li">
+                  {% endif %}
+                        <a class="threads-cat-a" href="#{{c.cat_name}}"><i class="{{ c.cat_icon}}"></i> {{c.cat_name}}</a>
+                  </li>
+                  {% endfor %}
+               </ul>
+               {% for c in categories %}
+               <div class="card thread-cards" id="{{c.cat_name}}">
+                  <div class="card-header">
+                     <i class="{{ c.cat_icon }}"></i> {{c.cat_name}}
+                  </div>
+                  <div class="card-body ps-0 pe-0">
+                     <ul class="thread-list-ul">
+                        {% for thread in threads %}
+                        {% if thread.cat_name == c.cat_name %}
+                        <li class="thread-list-li">
+                           <div class="row">
+                              <div class="col-sm thread-icon">
+                                 <i class="mdi mdi-file"></i>
+                              </div>
+                              <div class="col">
+                                 <p class="thread-p"><a href="/threads/{{thread.id}}" class="thread-lnk">{{thread.title}}</a></p>
+                                 <small class="author-tag-sm">{{thread.username}} &nbsp;<i class="mdi mdi-clock"></i> {{thread.created}}</small>
+                              </div>
+                              <div class="col-sm th-repl">
+                                 <small>{{thread.replies}}<br>replies</small>
+                              </div> 
+                              <div class="col-sm th-views">
+                                 <small>{{ [532,563,641,786,135,343,243,122] | random }} views</small>
+                              </div> 
+                              <div class="col-sm th-avatar">
+                                 <img src="/static/images/{{thread.avatar}}" class="avatar-thumb">
+                              </div> 
+                           </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                     </ul>
+                     
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+            <div class="col-lg-3 home-main-sidebar">
+               <div class="row sidebar-row">
+                  <a href="https://twitter.com/rayhan0x01" target="_blank"><img src="/static/images/ads_3.gif" style="width: 100%"></a>
+                  <div class="card user-body" id="userinfo">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col-sm side-avatar">
+                              <img src="/static/images/{{user.avatar}}" class="avatar-thumb">
+                           </div>
+                           <div class="col ms-1">
+                              <b>{{user.username}}</b><br>
+                              <small class="text-muted">Felonious {{user.user_role}}</small>
+                           </div>
+                           <div class="col">
+                              <div class="row">
+                                 <div class="col-sm">
+                                    <p class="rep-tile"><i class="mdi mdi-bitcoin"></i> {{user.credits}}</p>
+                                 </div>
+                                 <div class="col-sm">
+                                    <p class="rep-tile"><i class="mdi mdi-fire"></i> {{user.credits}}</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card s-btn-card">
+                     <div class="card-body side-btns">
+                        <a href="/threads/me"><button class="btn btn-danger t-active m-th">My Threads</button></a>
+                        <a href="/threads/new"><button class="btn btn-danger t-active n-th">New Thread</button></a>
+                     </div>
+                  </div>
+                  <div class="card">
+                     <div class="card-header h-active"><i class="mdi mdi-message"></i> Shoutbox</div>
+                     <div class="card-body shoutbox-body" id="shoutbox">
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+        </div>
+      </div>
+      <div class="container mt-5 mb-5">
+        <ul class="footer-ul">
+          <li class="footer-li">
+            <a class="footer-a" href="#"><i class="mdi mdi-home"></i> Felonious Forums</a>
+          </li>
+          <li class="footer-li">
+            <a class="footer-a" href="#"><i class="mdi mdi-email"></i> Contact Us</a>
+          </li>
+          <li class="footer-li">
+            <a class="footer-a" href="#"><i class="mdi mdi-briefcase"></i> Legal Policies</a>
+          </li>
+          <li class="footer-li">
+            <a class="footer-a" href="#"><i class="mdi mdi-rss"></i> Transparency Reports</a>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="col text-start ms-1 text-muted">
+              Current Time : <span id="current-date"></span>
+          </div>
+          
+        </div>
+      </div>
+      <script src="/static/js/jquery-3.6.0.min.js"></script>
+      <script src="/static/js/bootstrap.min.js"></script>
+      <script src="/static/js/global.js"></script>
+   </body>
+</html>

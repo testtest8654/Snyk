@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    background: #151515;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+ 
+ .navbar {
+     padding-top: 5px;
+     padding-bottom: 5px;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+     color: #fff;
+  }
+  
+  
+  
+  .header-banner {
+     position: relative;
+     width: 100%;
+     background: url(/static/images/bg.jpg);
+     height: 200px;
+     
+  }
+ .header-banner:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: -30px;
+    left: 0px;
+    background: #350a0a;
+    z-index: -1;
+ }
+  
+  #main-logo {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%);
+     max-width: 500px;
+  }
+ 
+ 
+ .main-container {
+    background: #303030;
+    position: relative;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    min-width: 500px;
+ }
+ 
+ .main-breadcrumb {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    background: #1e1c1c;
+ }
+ 
+ .main-breadcrumb:before {
+    position: absolute;
+    content: '';
+    height: 60px;
+    width: 30px;
+    background: #0d0c0c;
+    bottom: -53px;
+    left: 9px;
+    rotate: -20deg;
+    z-index: -2;
+ }
+ 
+ .main-breadcrumb:after {
+    position: absolute;
+    content: '';
+    height: 60px;
+    width: 30px;
+    background: #0d0c0c;
+    bottom: -53px;
+    right: 9px;
+    rotate: 20deg;
+    z-index: -2;
+ }
+
+.no-border {
+    border: none !important;
+}
+
+.no-bg-color {
+    background-color: inherit !important;
+}
+
+.bcm-ul, .footer-ul {
+   list-style: none;
+   display: inline;
+}
+
+.bcm-li {
+   display: inline-block;
+   background: #ec494d;
+   height: 100%;
+   margin: 0 auto;
+   text-align: center;
+   padding-top: 8px;
+   margin-right: 5px;
+}
+
+.bcm-a {
+   text-decoration: none;
+   color: white;
+   padding: 10px;
+}
+
+a {
+	color: #ec494d;
+	text-decoration: underline;
+}
+
+a:hover {
+   color: #993939;
+}
+.bcm-a:hover {
+   color: black;
+}
+
+.btn-danger {
+	color: #fff;
+	background-color: #ec494d;
+	border-color: #e74c3c;
+}
+
+.bcm-tail {
+   position: absolute;
+   top: 35px;
+   left: 0px;
+   background: #0d0c0c;
+   width: 100%;
+   height: 8px;
+}
+
+.footer-ul {
+   padding-left: 0px;
+}
+
+.footer-li {
+   display: inline-block;
+   height: 100%;
+   margin: 0 auto;
+   text-align: center;
+   padding-top: 8px;
+   margin-right: 5px;
+}
+
+.footer-a {
+   text-decoration: none;
+   color: white;
+   padding: 10px;
+   padding-left: 0px;
+   padding-right: 20px;
+}
+
+.footer-a:hover {
+   color: red;
+}
+
+.top-ads {
+   position: relative;
+   margin-top: 15px;
+   padding: 20px;
+   border: 1px solid #515151;
+}
+
+.top-ads:after {
+   position: absolute;
+   content: 'Tier-1 Advertisements';
+   top: -10px;
+   left: 50%;
+   transform: translate(-50%);
+   background: #303030;
+   padding: 0px 10px;
+}
+
+.top-ad-banners {
+   height: 76px;
+   width: 400px;
+}
+
+
+.home-threads-container {
+   margin: 0px;
+}
+
+.home-main-section {
+   margin-top: 15px;
+   padding: 0px;
+}
+
+.threads-cat-ul {
+   list-style: none;
+   display: inline-block;
+   margin-left: 0px;
+   padding-left: 0px;
+}
+
+.threads-cat-li {
+   padding: 5px 10px;
+   margin: 5px 3px;
+   background: rgba(111, 109, 109, 0.42);
+   display: inline-block;
+   border-radius: 3px;
+}
+
+.t-active  {
+   background: rgba(236, 73, 77, 0.42);
+   border: none;
+}
+
+.threads-cat-a {
+   text-decoration: none;
+   color: white;
+}
+
+.threads-cat-a:hover {
+   color: black;
+}
+
+
+
+.thread-cards {
+   margin-bottom: 30px;
+}
+
+.thread-cards > .card-header {
+   background: rgba(236, 73, 77, 0.42);
+   margin-bottom: 0px;
+}
+
+.thread-cards .card-body {
+   padding: 0px 15px;
+}
+.thread-list-ul{
+   list-style: none;
+   margin-left: 0px;
+   padding-left: 0px;
+}
+
+.thread-icon {
+   margin: 10px;
+   padding: 5px;
+   max-width: 35px;
+   min-width: 35px;
+   margin-left: 30px;
+}
+
+.thread-list-li {
+   border-bottom: 1px solid #463d3d;
+}
+
+.thread-icon >i {
+   font-size: 30px;
+   color: grey;
+}
+
+
+.thread-lnk {
+   text-decoration: none;
+   color: white;
+   font-weight: bold;
+   font-size: 15px;
+   margin-bottom: 0px;
+}
+
+.thread-p {
+   margin-top: 15px;
+   margin-bottom: 3px;
+}
+
+.author-tag-sm {
+   color: #b9b4b4;
+}
+
+
+.th-views, .th-repl {
+   max-width: 100px;
+   position: relative;
+   text-align: center;
+}
+
+.th-views > small, .th-repl > small {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.th-avatar {
+   max-width: 100px;
+   margin: 0 auto;
+   position: relative;
+}
+.avatar-thumb {
+   position: absolute;
+   width: 40px;
+   border-radius: 50%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+
+.home-main-sidebar {
+   margin-top: 74px;
+}
+
+
+@media (max-width: 900px){
+   .top-ads .col-lg {
+      width: 100%;
+      text-align: center !important;
+   }
+   .home-main-sidebar {
+      margin-top: 0px;
+   }
+}
+
+.h-active {
+   margin-top: 10px;
+   background: rgba(236, 73, 77, 0.42);
+}
+
+
+.shoutbox-body {
+   height: 300px;
+   border: 1px solid #463d3d;
+   overflow-y: scroll;
+   word-break: break-word;
+}
+
+.shoutbox-body > small > span {
+   color: pink;
+}
+
+
+
+.smiley {
+   height: 17px;
+   padding-left: 4px;
+}
+
+.side-avatar {
+   max-width: 30px;
+   margin: 0 auto;
+   position: relative;
+   margin-left: 10px;
+}
+
+
+.rep-tile {
+   background: #4a4949;
+   float:right;
+   width: 55px;
+   padding: 2px 5px;
+   border-radius: 2px;
+   color: #b9b8b8;
+   font-weight: bold;
+   font-size: 13px;
+      margin: 0px;
+}
+.rep-tile > i {
+   color: #ff5156;
+
+}
+
+.rep-tile:first-of-type {
+   margin-bottom: 4px;
+}
+
+.user-body, .s-btn-card {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   display: flex;
+}
+
+.side-btns {
+   margin: 0 auto;
+   padding: 10px;
+   display: inline;
+   flex: 1;
+}
+
+.side-btns > a > .btn {
+   padding: 5px 30px;
+   font-size: 13px;
+}
+
+@media (max-width: 1400px) {
+   .side-btns > a > .btn {
+   width: 100%;
+   margin-bottom: 10px;
+   font-size: 13px;
+}
+   .rep-tile  {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+   }
+}
+
+
+#resp-msg {
+   max-width: 500px;
+   margin: 0 auto;
+   margin-top: 15px;
+}
+
+#globalToast {
+   position: fixed;
+   top: 60px;
+   right: 10px;
+   background: #551516;
+}
