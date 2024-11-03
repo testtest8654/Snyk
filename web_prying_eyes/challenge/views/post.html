@@ -1,0 +1,26 @@
+{% extends "_template.html" %} {% block body %}
+<h1>{{parent.title}}</h1>
+<a href="/forum">Go Back</a>
+{% for post in posts %}
+<div id="post-{{post.id}} border-secondary">
+  <hr />
+  <div class="row">
+    <div class="col-2">
+      <strong>{{post.username}}</strong><br /><br />
+      <p class="text-muted m-0">Posted at {{post.createdAt | date}}</p>
+    </div>
+    <div class="col-10">
+      <p style="white-space: pre-line">{{post.message}}</p>
+      {% if post.attachedImage %}
+      <div>
+        <img class="img-fluid" style="max-height: 350px" src="{{post.attachedImage}}" />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<hr />
+<h2>Reply to this post:</h2>
+{% set parentId = parent.id %} {% include "_new.html" %} {% endblock %}

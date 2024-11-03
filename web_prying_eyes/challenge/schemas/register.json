@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "username": { "type": "string", "minLength": 4, "maxLength": 32 },
+    "password": { "type": "string", "minLength": 6, "maxLength": 32 }
+  },
+  "required": ["username", "password"],
+  "errorMessage": {
+    "properties": {
+      "username": "Username should be between 4 and 32 characters.",
+      "password": "Password should be between 6 and 32 characters."
+    }
+  }
+}

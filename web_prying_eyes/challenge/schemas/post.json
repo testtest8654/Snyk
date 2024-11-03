@@ -1,0 +1,58 @@
+{
+  "definitions": {
+    "post": {
+      "type": "object",
+      "required": ["message"],
+      "properties": {
+        "message": { "type": "string", "minLength": 4, "maxLength": 1024 }
+      },
+      "errorMessage": {
+        "properties": {
+          "message": "Message should be between 4 and 1024 characters."
+        }
+      }
+    },
+    "parentPost": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": { "type": "string", "minLength": 4, "maxLength": 128 }
+      },
+      "errorMessage": {
+        "properties": {
+          "title": "Title should be between 4 and 128 characters."
+        }
+      }
+    },
+    "replyPost": {
+      "type": "object",
+      "required": ["parentId"],
+      "properties": {
+        "parentId": { "type": "integer" }
+      },
+      "errorMessage": ""
+    },
+    "transforms": {
+      "type": "object",
+      "properties": {
+        "rotate": { "type": "integer", "minimum": 0, "maximum": 360, "multipleOf": 90 },
+        "flip": { "type": "boolean" }
+      },
+      "errorMessage": {
+        "properties": {
+          "rotate": "Rotate must be between 0 and 360 and a multiple of 90."
+        }
+      }
+    }
+  },
+  "allOf": [
+    { "$ref": "#/definitions/post" },
+    { "$ref": "#/definitions/transforms" },
+    {
+      "oneOf": [{ "$ref": "#/definitions/parentPost" }, { "$ref": "#/definitions/replyPost" }],
+      "errorMessage": {
+        "oneOf": ""
+      }
+    }
+  ]
+}

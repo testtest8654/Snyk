@@ -1,0 +1,78 @@
+<form method="post" action="/forum/post" enctype="multipart/form-data">
+  {% if not parentId %}
+  <div class="mb-3">
+    <label class="form-label">Post title</label>
+    <input class="form-control" name="title" required minlength="4" maxlength="128" />
+  </div>
+  {% endif %}
+  <div class="mb-3">
+    <label class="form-label">Post message</label>
+    <textarea class="form-control" name="message" rows="3" required minlength="4" maxlength="1024"></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Attach image</label>
+    <input class="form-control" id="image-upload" name="image" type="file" accept=".png,.jpg,.jpeg" />
+  </div>
+  <div class="mb-3">
+    <div id="image-container">
+      <img id="image-preview" class="mb-2" />
+    </div>
+
+    <input name="rotate" type="hidden" value="0" />
+    <input name="flip" type="hidden" value="false" />
+
+    <div id="image-controls" style="display: none">
+      <button id="rotate-left" type="button" class="btn btn-primary" onclick="rotateLeft()">Rotate Left</button>
+      <button id="rotate-right" type="button" class="btn btn-primary" onclick="rotateRight()">Rotate Right</button>
+      <button id="flip-image" type="button" class="btn btn-primary" onclick="flipImage()">Flip Image</button>
+    </div>
+  </div>
+  {% if parentId %}
+  <input name="parentId" type="hidden" value="{{parentId}}" />
+  {% endif %}
+  <button type="submit" class="btn btn-primary">Submit Post</button>
+</form>
+
+<style>
+  #image-preview {
+    max-height: 350px;
+  }
+  #image-container {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const $ = (...args) => document.querySelector(...args);
+
+  const imagePreview = $("#image-preview");
+  const imageInput = $("#image-upload");
+  const imageControls = $("#image-controls");
+
+  imageInput.addEventListener("input", () => {
+    const [file] = imageInput.files;
+    if (file) {
+      imagePreview.src = URL.createObjectURL(file);
+    }
+    imageControls.style.display = file ? "" : "none";
+  });
+
+  const rotateInput = $("input[name='rotate']");
+
+  const rotateLeft = () => {
+    rotateInput.value = (parseInt(rotateInput.value) + 270) % 360;
+    imagePreview.style.rotate = rotateInput.value + "deg";
+  };
+
+  const rotateRight = () => {
+    rotateInput.value = (parseInt(rotateInput.value) + 90) % 360;
+    imagePreview.style.rotate = rotateInput.value + "deg";
+  };
+
+  const flipInput = $("input[name='flip']");
+
+  const flipImage = () => {
+    flipInput.value = flipInput.value === "true" ? "false" : "true";
+    imagePreview.style.transform = flipInput.value === "true" ? "scaleY(-1)" : "";
+  };
+</script>

@@ -1,0 +1,39 @@
+{% extends "_template.html" %} {% block body %}
+<h1 class="text-center">Recent Forum Posts</h1>
+<p class="text-center">
+  Welcome to the Prying Eyes, a safe space for those curious about the large organisations that dominate our life. Buy, sell or learn about
+  these evil organisations and how they control every aspect of your life. <br />
+</p>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/forum/new">Create New Post</a>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Thread / Author</th>
+      <th scope="col" class="text-center" style="width: 100px">Replies</th>
+      <th scope="col" class="text-center" style="width: 150px">Posted At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3"><hr /></td>
+    </tr>
+    {% for post in posts %}
+    <tr>
+      <th scope="row">
+        <a class="fs-5" href="/forum/post/{{post.id}}">{{post.title}}</a><br /><span class="text-muted">By {{post.username}}</span>
+      </th>
+      <td class="text-center">{{post.replies}}</td>
+      <td class="text-center">{{ post.createdAt | date }}</td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr /></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
