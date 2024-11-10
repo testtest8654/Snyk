@@ -1,0 +1,15 @@
+{% extends "layouts/admin.html" %}
+{% block content %}
+
+<h1>API Health Check</h1>
+<form method="post">
+    <label class="mt-3" for="url">API URL:</label><br>
+    <input class="mt-2 rounded-md p-2 w-100 text-dark" type="text" id="url" name="url" required>
+    <button class="mt-2 rounded-md transition-all hover:bg-purple-600 block p-2 text-white bg-purple-500 font-semibold tracking-widest" type="submit">Check Status</button>
+</form>
+
+{% if status_code %}
+    <p class="mt-3">Status Code: {{ status_code }}</p>
+{% endif %}
+
+{% endblock %}
