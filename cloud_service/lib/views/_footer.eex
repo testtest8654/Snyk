@@ -1,0 +1,6 @@
+<footer class="text-center text-white" style="position:absolute;bottom:0;left:0;right:0;background-color: #f1f1f1;">
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <%= DateTime.utc_now |> Map.fetch!(:year) %> Copyright:
+        <a class="text-dark" href="#">cloud.corp</a>
+    </div>
+</footer>

@@ -1,0 +1,25 @@
+<DOCTYPE !html>
+<html>
+    <%= CloudService.TemplateEngine.render_view("_head", title: "Home") %>
+    <body>
+        <%= CloudService.TemplateEngine.render_view("_navbar", active: :home) %>
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col">
+                    <h1>Welcome to my brand-new cloud service!</h1>
+                    <div class="alert alert-warning" role="alert">
+                        This is a trial version, files are deleted after 10 minutes.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <i>
+                        Want to take a look at source code ? Click <a href="/source.zip">here</a>.
+                    </i>
+                </div>
+            </div>
+        </div>
+        <%= CloudService.TemplateEngine.render_view("_footer") %>
+    </body>
+</html>
