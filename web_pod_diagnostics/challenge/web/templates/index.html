@@ -1,0 +1,71 @@
+{% extends "_template.html" %}
+{% block body %}
+  <div class="container mt-4 rpgui-container framed-grey">
+    <h1 class="fs-4">Pod Diagnostics {{system_version}}</h1>
+
+    <div class="text-center d-print-none">
+      <a href="/generate-report" download>
+        <button class="rpgui-button"><p class="m-0">Download Diagnostics</p></button></a
+      >
+    </div>
+
+    <div class="alert alert-danger" id="error-message"></div>
+
+    <div>
+      <hr />
+      <h2 class="text-start">System Uptime:</h2>
+      <p id="system-uptime"></p>
+      <hr />
+      <div class="row">
+        <div class="col-6">
+          <h2 class="text-start">System Statistics:</h2>
+        </div>
+        <div class="col-6 d-print-none">
+          <select class="rpgui-dropdown" id="period-selector">
+            <option value="1m">Compare to last minute</option>
+            <option value="5m">Compare to last 5 minutes</option>
+            <option value="10m">Compare to last 10 minutes</option>
+          </select>
+        </div>
+      </div>
+      <label>CPU Usage (%):</label>
+      <div class="rpgui-progress blue" id="cpu-usage"></div>
+      <span style="font-size: 12px;"><span id="cpu-usage-average"></span>% compared to last <span class="time-label"></span></span>
+      <hr />
+      <label>Disk Usage (%):</label>
+      <div class="rpgui-progress red" id="disk-usage"></div>
+      <span style="font-size: 12px;"><span id="disk-usage-average"></span>% compared to last <span class="time-label"></span></span>
+      <hr />
+      <label>Memory Usage (%):</label>
+      <div class="rpgui-progress green" id="memory-usage"></div>
+      <span style="font-size: 12px;"><span id="memory-usage-average"></span>% compared to last <span class="time-label"></span></span>
+      <hr />
+
+      <h3 id="last-updated"></h3>
+    </div>
+  </div>
+
+  <div class="container mt-4 rpgui-container framed-grey d-print-none">
+    <h1 class="fs-4">Engineer Reports</h1>
+
+    <div class="text-center">
+      <a href="/report">
+        <button class="rpgui-button"><p class="m-0">Submit Report</p></button></a
+      >
+    </div>
+
+    <hr />
+    {% if reports|length %}
+      {% for report in reports %}
+        {{ report.render() | safe }}
+        <hr />
+      {% endfor %}
+    {% else %}
+      <p>No reports.</p>
+    {% endif %}
+  </div>
+
+</div>
+
+<script src="/static/js/stats.js"></script>
+{% endblock %}
