@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% include "layouts/head.html" %}
+</head>
+
+<body>
+    <div
+        class="lg:max-w-screen w-full flex flex-col items-center relative overflow-x-hidden lg:p-0 body-font overflow-hidden h-screen bg-blue-950 z-0">
+        <div
+            class="container mt-16 px-5 py-24 mx-auto flex rounded-[.4rem] bg-gradient-to-t lg:bg-gradient-to-b from-slate-800 to-slate-900 shadow-lg shadow-blue-950 border-[1px] border-blue-800">
+            <div class="mx-auto text-center">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <img loading="lazy" width="300" height="200" decoding="async" data-nimg="1"
+            class="absolute w-full -z-10 -top-12 left-[50%] translate-x-[-50%] opacity-[100%] max-h-[62rem] object-cover"
+            src="/static/img/future.svg">
+    </div>
+</body>
+
+</html>

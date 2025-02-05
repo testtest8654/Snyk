@@ -1,0 +1,9 @@
+SQLAlchemy
+Flask
+bcrypt
+fpdf2
+selenium
+requests
+grpcio
+grpcio-tools
+protobuf
