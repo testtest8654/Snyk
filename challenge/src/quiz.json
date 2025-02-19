@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "question": "What is the average lifespan of a domestic cat?",
+        "options": [
+            "5-10 years",
+            "10-15 years",
+            "15-20 years",
+            "20-25 years"
+        ],
+        "answer": 2
+    },
+    {
+        "id": 2,
+        "question": "How many breeds of cats are officially recognized by the Cat Fanciers' Association?",
+        "options": [
+            "44 breeds",
+            "71 breeds",
+            "58 breeds",
+            "32 breeds"
+        ],
+        "answer": 2
+    },
+    {
+        "id": 3,
+        "question": "What is the primary reason cats purr?",
+        "options": [
+            "To communicate with other cats",
+            "To express contentment",
+            "To scare away predators",
+            "To navigate their surroundings"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 4,
+        "question": "What is the name of the largest domesticated cat breed?",
+        "options": [
+            "Siamese",
+            "Maine Coon",
+            "Persian",
+            "Bengal"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 5,
+        "question": "How does a cat's vision differ from a human's vision?",
+        "options": [
+            "Cats can see more colors",
+            "Cats can see better in the dark",
+            "Cats have better long-distance vision",
+            "Cats can see in complete darkness"
+        ],
+        "answer": 1
+    },
+    {
+        "id": 6,
+        "question": "Why do cats have whiskers and what purpose do they serve?",
+        "options": [
+            "To express emotions",
+            "To help with balance",
+            "To detect changes in their environment",
+            "To intimidate other animals"
+        ],
+        "answer": 2
+    },
+    {
+        "id": 7,
+        "question": "What is the term for a group of cats?",
+        "options": [
+            "Pack",
+            "Herd",
+            "Clowder",
+            "Flock"
+        ],
+        "answer": 2
+    },
+    {
+        "id": 8,
+        "question": "How many hours a day do cats typically sleep?",
+        "options": [
+            "8-10 hours",
+            "10-12 hours",
+            "12-14 hours",
+            "13-14 hours"
+        ],
+        "answer": 3
+    },
+    {
+        "id": 9,
+        "question": "What is the name of the gene that causes the 'tuxedo' pattern in cats?",
+        "options": [
+            "Piebald gene",
+            "Tabby gene",
+            "Calico gene",
+            "Tortoiseshell gene"
+        ],
+        "answer": 0
+    },
+    {
+        "id": 10,
+        "question": "What is the scientific name for the common house cat?",
+        "options": [
+            "Felis catus",
+            "Felis silvestris",
+            "Felis domesticus",
+            "Felis lybica"
+        ],
+        "answer": 0
+    }
+]

@@ -1,0 +1,8 @@
+body {
+    background: url("/static/img/pattern.svg") #E7E8F0;
+    background-size: 200px;
+    background-position: center;
+    color: #333;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
